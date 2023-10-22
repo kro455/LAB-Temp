@@ -89,11 +89,22 @@ class OrderList extends ArrayList<Order> {
     void display() {
         System.out.println("   Product  | Quantity | Price | Amount");
         int count = 0;
-        int sum = 0;
         for (Order order : this) {
             System.out.println(++count + ". " + order);
-            sum += order.getAmount();
         }
-        System.out.println("Total: " + sum + "$\n");
+        System.out.println("Total: " + getTotal() + "$\n");
+    }
+
+    /**
+     * tính tổng tiền các sản phẩm đặt hàng.
+     *
+     * @return tổng số tiền cần thanh toán.
+     */
+    private int getTotal() {
+        int sum = 0;
+        for (Order o : this) {
+            sum += o.getAmount();
+        }
+        return sum;
     }
 }
