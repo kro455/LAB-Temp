@@ -19,21 +19,21 @@ public class Inputter {
      * @return trả về true nếu người dùng chọn y, ngược lại là false
      */
     public static boolean askYesNo(String msg) {
-        String data = getStringWithPattern(msg, "[Y|y|n|N]");
-        return data.matches("[Y|y]");
+        String data = getStringWithPattern(msg, "[YynN]");
+        return data.matches("[Yy]");
     }
 
     /**
      * phương thức trả về một số nguyên trong khoảng [min, max].
      *
-     * @param msg
+     * @param enterName
      * @param min
      * @param max
      * @return
      */
-    public static int getInt(String msg, int min, int max) {
+    public static int getInt(String enterName, int min, int max) {
         while (true) {
-            int data = getInt(msg);
+            int data = getInt(enterName);
             if ((data < min) || (data > max)) {
                 System.err.println("Enter in range[" + min + ", " + max + "]");
             } else {
@@ -69,7 +69,7 @@ public class Inputter {
     public static int getInt(String enterName) {
         while (true) {
             try {
-                System.out.print("Enter "+enterName+": ");
+                System.out.print("Enter " + enterName + ": ");
                 return Integer.parseInt(sc.nextLine().trim());
             } catch (NumberFormatException e) {
                 System.err.println("pls Enter Integer number!");

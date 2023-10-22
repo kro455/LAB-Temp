@@ -21,7 +21,7 @@ public class Menu {
         System.out.println("|3. Shopping (for buyer)             |");
         System.out.println("|4. Exit                             |");
         System.out.println("|------------------------------------|");
-        return Inputter.getInt("Enter your choice: ", 1, 4);
+        return Inputter.getInt("your choice", 1, 4);
     }
 
     /**
