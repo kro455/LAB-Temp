@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package convernumber;
+package ConverNumber;
 
 import java.math.BigInteger;
 
@@ -47,19 +43,19 @@ public class Number {
             return new Number(value, base);
         }
 
-        //convert to dec first
+        // convert to dec first
         String newValue = (base == 10) ? value : fromBaseToDec(value, base);
 
-        //covert dec to new base 
+        // covert dec to new base
         newValue = (newBase == 10) ? newValue : fromDecToBase(newValue, newBase);
 
-        //return new base number
+        // return new base number
         return new Number(newValue, newBase);
     }
 
-    private static final char[] BASE_DIGIT = {'0', '1', '2', '3', '4', '5', '6',
-        '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-        'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    private static final char[] BASE_DIGIT = { '0', '1', '2', '3', '4', '5', '6',
+            '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+            'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
     private static String fromDecToBase(String value, int base) {
         BigInteger n = new BigInteger(value);
