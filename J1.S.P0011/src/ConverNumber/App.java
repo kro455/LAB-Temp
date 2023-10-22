@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package ConverNumber;
 
 /**
@@ -12,7 +16,7 @@ public class App {
             int choice = Menu.display();
             switch (choice) {
                 case 1:
-                    // input base number
+                    //input base number
                     convert.setInputNumber();
                     break;
                 case 2:
