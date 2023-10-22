@@ -84,7 +84,7 @@ public class Number {
         for (int i = value.length() - 1; i >= 0; i--) {
             char c = value.charAt(i);
             // 'A'=65, '0'=48
-            temp = c > 64 ? c - 55 : c - 48;
+            temp = (c > 64) ? (c - 55) : (c - 48);
             bigNum = bigNum.add(p.multiply(BigInteger.valueOf(temp)));
             p = p.multiply(val);
         }
