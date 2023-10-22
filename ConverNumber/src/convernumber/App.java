@@ -11,17 +11,17 @@ package convernumber;
 public class App {
 
     public static void main(String[] args) {
-        MangerNumber mangerNumber=new MangerNumber();
+        ConvertNumber convert = new ConvertNumber();
         do {
-            int choice=Menu.display();
+            int choice = Menu.display();
             switch (choice) {
                 case 1:
                     //input base number
-                    mangerNumber.setInputNumber();
+                    convert.setInputNumber();
                     break;
                 case 2:
                     // conver to new base and display results
-                    mangerNumber.setOutputNumber();
+                    convert.setOutputNumber();
                     break;
                 default:
                     return;
