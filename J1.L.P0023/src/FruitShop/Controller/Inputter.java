@@ -45,13 +45,13 @@ public class Inputter {
     /**
      * phương thức trả về một số nguyên > min.
      *
-     * @param msg
+     * @param enterName
      * @param min
      * @return
      */
-    public static int getInt(String msg, int min) {
+    public static int getInt(String enterName, int min) {
         while (true) {
-            int data = getInt(msg);
+            int data = getInt(enterName);
             if (data <= min) {
                 System.err.println("Enter number > " + min);
             } else {
@@ -63,13 +63,13 @@ public class Inputter {
     /**
      * phương thức trả về một số nguyên.
      *
-     * @param msg
+     * @param enterName
      * @return
      */
-    public static int getInt(String msg) {
+    public static int getInt(String enterName) {
         while (true) {
             try {
-                System.out.print(msg);
+                System.out.print("Enter "+enterName+": ");
                 return Integer.parseInt(sc.nextLine().trim());
             } catch (NumberFormatException e) {
                 System.err.println("pls Enter Integer number!");
@@ -80,16 +80,16 @@ public class Inputter {
     /**
      * phương thức trả về một chuỗi không rỗng.
      *
-     * @param msg
+     * @param enterName
      * @return
      */
-    public static String getNonBlankString(String msg) {
+    public static String getNonBlankString(String enterName) {
         String data;
         do {
-            System.out.print("Enter " + msg + ": ");
+            System.out.print("Enter " + enterName + ": ");
             data = sc.nextLine().trim();
             if (data.isEmpty()) {
-                System.out.println(msg + " cannot empty!");
+                System.out.println(enterName + " cannot empty!");
             } else {
                 return data;
             }

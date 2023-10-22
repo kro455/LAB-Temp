@@ -27,10 +27,10 @@ public class FruitList extends ArrayList<Fruit> {
     void addNewFruit() {
         System.out.println("-------Create Product-------");
         String id = getNewID();
-        String name = Inputter.getNonBlankString("Fruit Name");
-        int price = Inputter.getInt("Enter Price: ", 0);
-        int quantity = Inputter.getInt("Enter Quantity: ", 0);
-        String origin = Inputter.getNonBlankString("Origin");
+        String name = getNewName();
+        int price = getNewPrice();
+        int quantity = getNewQuantity();
+        String origin = getNewOrigin();
         add(new Fruit(id, name, price, quantity, origin));
     }
 
@@ -50,6 +50,22 @@ public class FruitList extends ArrayList<Fruit> {
                 return id;
             }
         } while (true);
+    }
+
+    private String getNewName() {
+        return Inputter.getNonBlankString("Fruit Name");
+    }
+
+    private int getNewPrice() {
+        return Inputter.getInt("Price", 0);
+    }
+
+    private int getNewQuantity() {
+        return Inputter.getInt("Quantity", 0);
+    }
+
+    private String getNewOrigin() {
+        return Inputter.getNonBlankString("Origin");
     }
 
     /**
