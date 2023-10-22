@@ -17,7 +17,7 @@ public class UserTable extends Hashtable<String, OrderList> {
      * @param cart hoá đơn của khách hàng.
      */
     void addNewCustomerWithOrderList(OrderList cart) {
-        String name = getNewCusTomer();
+        String name = getNewCustomer();
         put(name, cart);
 
     }
@@ -27,7 +27,7 @@ public class UserTable extends Hashtable<String, OrderList> {
      *
      * @return trả về tên của khách hàng mới.
      */
-    private String getNewCusTomer() {
+    private String getNewCustomer() {
         String name;
         while (true) {
             name = Inputter.getNonBlankString("your name");
