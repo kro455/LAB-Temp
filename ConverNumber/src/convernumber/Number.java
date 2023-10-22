@@ -16,14 +16,14 @@ public class Number {
     private int base;
 
     public Number(String value, int base) {
-        if (isBase(value, base)) {
+        if (checkBaseNumber(value, base)) {
             this.value = value;
             this.base = base;
         }
     }
 
     public void setValueAndBase(String value, int base) {
-        if (isBase(value, base)) {
+        if (checkBaseNumber(value, base)) {
             this.value = value;
             this.base = base;
         }
@@ -94,7 +94,7 @@ public class Number {
 
     private static final String BASE_CHARACTER = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static boolean isBase(String value, int base) {
+    public static boolean checkBaseNumber(String value, int base) {
         String p = "[" + BASE_CHARACTER.substring(0, base) + "]+";
         return value.matches(p);
     }

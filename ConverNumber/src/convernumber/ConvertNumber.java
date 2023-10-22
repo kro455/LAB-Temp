@@ -10,11 +10,11 @@ package convernumber;
  */
 public class ConvertNumber {
 
-    private Number inputNumber;
-    private Number outputNumber;
-
     public static final int MIN_BASE = 2;
     public static final int MAX_BASE = 36;
+
+    private Number inputNumber;
+    private Number outputNumber;
 
     public void setInputNumber() {
         int baseInput = Inputter.getInt("Input base", MIN_BASE, MAX_BASE);
@@ -25,7 +25,7 @@ public class ConvertNumber {
     public void setOutputNumber() {
         if (inputNumber == null) {
             System.out.println("Input number to convert first!");
-            return;
+            setInputNumber();
         }
         int baseOutput = Inputter.getInt("Conver to base", MIN_BASE, MAX_BASE);
         outputNumber = inputNumber.convertTo(baseOutput);

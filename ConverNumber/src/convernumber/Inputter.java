@@ -35,7 +35,7 @@ public class Inputter {
         do {
             System.out.print(msg);
             data = SC.nextLine().toUpperCase();
-            if (Number.isBase(data, base)) {
+            if (Number.checkBaseNumber(data, base)) {
                 break;
             }
             System.out.println("Invalid base " + base + " format!");
