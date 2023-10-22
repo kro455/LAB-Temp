@@ -48,10 +48,10 @@ public class Number {
         }
 
         //convert to dec first
-        String newValue = (base == 10) ? value : fromBaseToDec(value, base);
+        String decValue = (base == 10) ? value : fromBaseToDec(value, base);
 
         //covert dec to new base 
-        newValue = (newBase == 10) ? newValue : fromDecToBase(newValue, newBase);
+        String newValue = (newBase == 10) ? decValue : fromDecToBase(decValue, newBase);
 
         //return new base number
         return new Number(newValue, newBase);
