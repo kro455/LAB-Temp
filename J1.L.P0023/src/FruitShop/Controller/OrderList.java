@@ -102,8 +102,8 @@ class OrderList extends ArrayList<Order> {
      */
     private int getTotal() {
         int sum = 0;
-        for (Order o : this) {
-            sum += o.getAmount();
+        for (Order order : this) {
+            sum += order.getAmount();
         }
         return sum;
     }
