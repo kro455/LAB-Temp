@@ -117,9 +117,7 @@ public class FruitList extends ArrayList<Fruit> {
     void viewList() {
         System.out.println("Here the list of all fruits has been created.");
         System.out.println("   id     name       price     quantity     origin");
-        for (Fruit x : this) {
-            System.out.println(x);
-        }
+        forEach(System.out::println);
     }
 
     /**
