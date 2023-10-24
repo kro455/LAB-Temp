@@ -1,5 +1,7 @@
 package Controller;
 
+import java.util.Hashtable;
+
 /**
  * Class quản lí bán hoa quả bao gồm thêm sản phẩm mới, hiển thị hoá đơn, và mua
  * hàng.
@@ -15,16 +17,17 @@ public class ShopManager {
     private final FruitList fruitList;
 
     /**
-     * bảng các đơn hàng của khách hàng.
+     * hashtable chứa tên khách hàng(key) và danh sách hoá đơn của khách
+     * hàng(value).
      */
-    private final UserTable userOrders;
+    private final Hashtable<String, OrderList> customerOrders;
 
     /**
      * hàm khởi tạo cho một cửa hàng mới.
      */
     public ShopManager() {
         this.fruitList = new FruitList();
-        this.userOrders = new UserTable();
+        this.customerOrders = new Hashtable<>();
     }
 
     /**
@@ -37,7 +40,7 @@ public class ShopManager {
     public void createProduct() {
         do {
             fruitList.addNewFruit();
-        } while (Inputter.askYesNo("Do you want to continue (Y/N)? "));
+        } while (wantToAddMoreFruit());
         fruitList.viewList();
     }
 
@@ -48,10 +51,14 @@ public class ShopManager {
      * không in ra danh sách hoá đơn của từng khách hàng.
      */
     public void viewOrders() {
-        if (userOrders.isEmpty()) {
+        if (customerOrders.isEmpty()) {
             System.out.println("Empty list!");
         } else {
-            userOrders.display();
+            System.out.println("-------View orders---------");
+            for (String name : customerOrders.keySet()) {
+                System.out.println("Customer: " + name);
+                customerOrders.get(name).display();
+            }
         }
     }
 
@@ -72,11 +79,45 @@ public class ShopManager {
         if (fruitList.hasProducts()) {
             do {
                 cart.addFruitFrom(fruitList);
-            } while (!Inputter.askYesNo("Do you want to order now (Y/N)? "));
+            } while (wantToContinueBuying());
             if (cart.hasProducts()) {
                 cart.display();
-                userOrders.addNewCustomerWithOrderList(cart);
+                addNewCustomerWithOrderList(cart);
             }
         }
+    }
+
+    /**
+     * thêm một khách hàng mới và thêm hoá đơn của khách hàng đó vào hashtable.
+     *
+     * @param cart hoá đơn của khách hàng.
+     */
+    void addNewCustomerWithOrderList(OrderList cart) {
+        String name = getNewCustomer();
+        customerOrders.put(name, cart);
+    }
+
+    /**
+     * thêm một khách hàng mới với tên không trùng lặp.
+     *
+     * @return trả về tên của khách hàng mới.
+     */
+    private String getNewCustomer() {
+        String name;
+        while (true) {
+            name = Inputter.getNonBlankString("your name");
+            if (!customerOrders.containsKey(name)) {
+                return name;
+            }
+            System.out.println("This name already exists, please enter another name!");
+        }
+    }
+
+    private boolean wantToAddMoreFruit() {
+        return Inputter.askYesNo("Do you want to continue (Y/N)? ");
+    }
+
+    private boolean wantToContinueBuying() {
+        return !(Inputter.askYesNo("Do you want to order now (Y/N)? "));
     }
 }
