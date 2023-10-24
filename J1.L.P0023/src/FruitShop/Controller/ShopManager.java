@@ -92,7 +92,7 @@ public class ShopManager {
      *
      * @param cart hoá đơn của khách hàng.
      */
-    void addNewCustomerWithOrderList(OrderList cart) {
+    private void addNewCustomerWithOrderList(OrderList cart) {
         String name = getNewCustomer();
         customerOrders.put(name, cart);
     }
