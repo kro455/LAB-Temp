@@ -65,7 +65,7 @@ public class Student {
                     hashmap.getOrDefault(c.getCourseName(), 0) + 1);
         }
         for (String courseName : hashmap.keySet()) {
-            System.out.printf("%10s|%10s|%d\n", name, courseName,
+            System.out.printf("%10s|%5s|%d\n", name, courseName,
                     hashmap.get(courseName));
         }
     }

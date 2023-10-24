@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package StudentManager;
 
 import java.util.ArrayList;
@@ -19,7 +15,7 @@ public class ManageStudents {
         this.studentList = new ArrayList<>();
         studentList.add(new Student("01", "Nam", "Fall", "C/C++"));
         studentList.add(new Student("02", "Abc", "Fall", "Java"));
-        studentList.add(new Student("03", "DAv", "Fall", "Net."));
+        studentList.add(new Student("03", "DAv", "Fall", ".Net"));
         studentList.add(new Student("04", "Bax", "Fall", "C/C++"));
         studentList.add(new Student("05", "Bad", "Fall", "C/C++"));
         studentList.add(new Student("06", "DGs", "Fall", "C/C++"));
@@ -30,7 +26,7 @@ public class ManageStudents {
     }
 
     /**
-     * DONE: tạo ra student mới và lặp lại nếu muốn nhập tiếp.
+     * tạo ra student mới và lặp lại nếu muốn nhập tiếp.
      */
     public void createStudent() {
         do {
@@ -40,12 +36,12 @@ public class ManageStudents {
     }
 
     /**
-     * DONE: tìm kiếm theo tên và sắp xếp theo tên.
+     * tìm kiếm theo tên và sắp xếp theo tên.
      */
     public void findAndSort() {
         ArrayList<Student> newList = listByName();
         if (newList.isEmpty()) {
-            System.out.println("Not Found");
+            System.out.println("Not Found!");
             return;
         }
         newList.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
@@ -55,7 +51,7 @@ public class ManageStudents {
     }
 
     /**
-     * DONE: tìm kiếm theo id và update hoặc xoá theo id.
+     * tìm kiếm theo id và update hoặc xoá theo id.
      */
     public void updateOrDelete() {
         String id = getNewId();
@@ -68,7 +64,12 @@ public class ManageStudents {
                     update(student, course);
                     break;
                 case "D":
-                    studentList.remove(student);
+                    if (student.getCourseList().size() > 1) {
+                        student.getCourseList().remove(course);
+                    } else {
+                        studentList.remove(student);
+                    }
+                    System.out.println("Done");
                     break;
             }
         } else {
@@ -77,7 +78,7 @@ public class ManageStudents {
     }
 
     /**
-     * TODO: hiển thị ra sutdent với tổng số môn học của học sinh đó.
+     * hiển thị ra sutdent với tổng số môn học của học sinh đó.
      */
     public void report() {
         studentList.forEach(Student::report);
@@ -103,8 +104,8 @@ public class ManageStudents {
     }
 
     /**
-     * DONE: tạo một student mới, nếu id đã tồn tại, chỉ yêu cầu nhập Semester
-     * và CourseName
+     * tạo một student mới, nếu id đã tồn tại, chỉ yêu cầu nhập Semester và
+     * CourseName
      */
     private void addStudent() {
         System.out.println("------Add Student--------");
