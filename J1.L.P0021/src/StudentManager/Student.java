@@ -46,7 +46,7 @@ public class Student {
         return courseList;
     }
 
-    public Course getCourse() {
+    public Course getCourseBySelecet() {
         int count = 0;
         System.out.printf("%5s%15s%15s%15s%15s\n",
                 "index","ID", "Name", "Semester", "Course Name");

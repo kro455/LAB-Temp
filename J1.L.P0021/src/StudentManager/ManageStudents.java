@@ -57,7 +57,7 @@ public class ManageStudents {
         String id = getNewId();
         Student student = getStudentById(id);
         if (student != null) {
-            Course course = student.getCourse();
+            Course course = student.getCourseBySelecet();
             String choice = Inputter.getStringWithPattern("Do you want to Update(u) or delete(d): ", "[UuDd]");
             switch (choice.toUpperCase()) {
                 case "U":
