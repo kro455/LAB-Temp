@@ -41,19 +41,19 @@ public class Ebank {
         print("loginSuccessfully");
     }
 
-    public String checkAccountNumber(String accountNumber) {
+    String checkAccountNumber(String accountNumber) {
         return accountNumber.matches(REGEX_ACCOUNT_NUMBER) ? null : "errorAccount";
     }
 
-    public String checkPassword(String password) {
+    String checkPassword(String password) {
         return password.matches(REGEX_PASSWORD) ? null : "errorPassword";
     }
 
-    public String checkCaptcha(String captchaInput, String captchaGenerate) {
+    String checkCaptcha(String captchaInput, String captchaGenerate) {
         return captchaInput.equals(captchaGenerate) ? null : "errorCaptcha";
     }
 
-    public String generateCaptcha() {
+    String generateCaptcha() {
         Random random = new Random();
         StringBuilder captcha = new StringBuilder();
         while (captcha.length() < MAX_LENGTH_CAPTCHA) {
