@@ -17,21 +17,18 @@ public class Ebank {
     }
 
     public void login() {
-        Scanner sc = new Scanner(System.in);
-        do {
-            print("enterAccountNumber");
-        } while (print(checkAccountNumber(sc.nextLine())));
-
-        do {
-            print("enterPassword");
-        } while (print(checkPassword(sc.nextLine())));
-
+        while (print(checkAccountNumber(getString("enterAccountNumber"))));
+        while (print(checkPassword(getString("enterPassword"))));
         String captchaGenerate = generateCaptcha();
         System.out.println("Captcha: " + captchaGenerate);
-        do {
-            print("enterCaptcha");
-        } while (print(checkCaptcha(sc.nextLine(), captchaGenerate)));
+        while (print(checkCaptcha(getString("enterCaptcha"), captchaGenerate)));
         print("loginSuccessfully");
+    }
+
+    String getString(String msg){
+        Scanner sc = new Scanner(System.in);
+        print(msg);
+        return sc.nextLine();
     }
 
     String checkAccountNumber(String accountNumber) {
