@@ -50,7 +50,7 @@ public class Ebank {
     }
 
     public String checkCaptcha(String captchaInput, String captchaGenerate) {
-        return captchaInput.matches(captchaGenerate) ? null : "errorCaptcha";
+        return captchaInput.equals(captchaGenerate) ? null : "errorCaptcha";
     }
 
     public String generateCaptcha() {
