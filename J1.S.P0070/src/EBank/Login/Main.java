@@ -3,10 +3,6 @@ package Login;
 import java.util.Locale;
 import java.util.Scanner;
 
-/**
- *
- * @author Admin
- */
 public class Main {
 
     public static void main(String[] args) {

@@ -5,19 +5,12 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-/**
- *
- * @author Admin
- */
 public class Ebank {
 
     public static final int MAX_LENGTH_CAPTCHA = 6;
     public static final String REGEX_ACCOUNT_NUMBER = "^\\d{10}$";
     public static final String REGEX_PASSWORD = "^(?=.*[a-zA-Z])(?=.*[0-9]).{8,31}$";
     public static final char[] CHARS = "QWERTYUIOPLKJHGFDSAZXCVBNM0912345678".toCharArray();
-
-    public Ebank() {
-    }
 
     public void setLocale(Locale locale) {
         Locale.setDefault(locale);
