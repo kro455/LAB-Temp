@@ -42,24 +42,15 @@ public class Ebank {
     }
 
     public String checkAccountNumber(String accountNumber) {
-        if (accountNumber.matches(REGEX_ACCOUNT_NUMBER)) {
-            return null;
-        }
-        return "errorAccount";
+        return accountNumber.matches(REGEX_ACCOUNT_NUMBER) ? null : "errorAccount";
     }
 
     public String checkPassword(String password) {
-        if (password.matches(REGEX_PASSWORD)) {
-            return null;
-        }
-        return "errorPassword";
+        return password.matches(REGEX_PASSWORD) ? null : "errorPassword";
     }
 
     public String checkCaptcha(String captchaInput, String captchaGenerate) {
-        if (captchaInput.matches(captchaGenerate)) {
-            return null;
-        }
-        return "errorCaptcha";
+        return captchaInput.matches(captchaGenerate) ? null : "errorCaptcha";
     }
 
     public String generateCaptcha() {
@@ -72,11 +63,11 @@ public class Ebank {
     }
 
     boolean print(String key) {
-        if (key == null) {
-            return false;
+        if (key != null) {
+            ResourceBundle bundle = ResourceBundle.getBundle("Language/messages");
+            System.out.print(bundle.getString(key));
+            return true;
         }
-        ResourceBundle bundle = ResourceBundle.getBundle("Language/messages");
-        System.out.print(bundle.getString(key));
-        return true;
+        return false;
     }
 }
