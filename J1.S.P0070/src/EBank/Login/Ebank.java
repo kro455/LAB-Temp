@@ -66,8 +66,7 @@ public class Ebank {
         if (key != null) {
             ResourceBundle bundle = ResourceBundle.getBundle("Language/messages");
             System.out.print(bundle.getString(key));
-            return true;
         }
-        return false;
+        return (key != null);
     }
 }
