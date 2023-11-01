@@ -45,7 +45,7 @@ public class FruitList extends ArrayList<Fruit> {
         do {
             id = Inputter.getNonBlankString("Fruit Id");
             if (getFruitById(id) != null) {
-                System.out.println("This ID already exists, please enter another name!");
+                System.out.println("This ID already exists, please enter another id!");
             } else {
                 return id;
             }
