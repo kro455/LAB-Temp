@@ -16,7 +16,6 @@ public class Ebank {
         Locale.setDefault(locale);
     }
 
-    @SuppressWarnings("empty-statement")
     public void login() {
         while (print(checkAccountNumber(getInputString("enterAccountNumber"))));
         while (print(checkPassword(getInputString("enterPassword"))));
