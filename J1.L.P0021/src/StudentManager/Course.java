@@ -1,9 +1,5 @@
 package StudentManager;
 
-/**
- *
- * @author Admin
- */
 public class Course {
 
     private String semester;

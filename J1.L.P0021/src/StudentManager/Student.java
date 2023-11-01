@@ -3,26 +3,15 @@ package StudentManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author Admin
- */
 public class Student {
 
     private String id;
     private String name;
-    private final ArrayList<Course> courseList;
-
-    public Student(String id, String name, ArrayList<Course> courseList) {
-        this.id = id;
-        this.name = name;
-        this.courseList = courseList;
-    }
+    private final ArrayList<Course> courseList = new ArrayList<>();
 
     public Student(String id, String name, String semester, String courseName) {
         this.id = id;
         this.name = name;
-        this.courseList = new ArrayList<>();
         this.courseList.add(new Course(semester, courseName));
     }
 
@@ -49,13 +38,13 @@ public class Student {
     public Course getCourseBySelecet() {
         int count = 0;
         System.out.printf("%5s%15s%15s%15s%15s\n",
-                "index","ID", "Name", "Semester", "Course Name");
+                "index", "ID", "Name", "Semester", "Course Name");
         for (Course c : courseList) {
             System.out.printf("%5d%15s%15s%15s%15s\n",
                     ++count, id, name, c.getSemester(), c.getCourseName());
         }
         int index = Inputter.getInt("Your Choice", 1, courseList.size());
-        return courseList.get(index-1);
+        return courseList.get(index - 1);
     }
 
     public void report() {

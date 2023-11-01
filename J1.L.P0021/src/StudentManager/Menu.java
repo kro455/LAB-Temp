@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package StudentManager;
 
-/**
- *
- * @author Admin
- */
 public class Menu {
 
     public static final String[] MAIN_OPTIONS = {

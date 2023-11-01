@@ -2,13 +2,9 @@ package StudentManager;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Admin
- */
 public class ManageStudents {
 
-    private final int MIN_SIZE = 10;
+    private final int MIN_SIZE = 5;
     private final ArrayList<Student> studentList;
 
     public ManageStudents() {
@@ -18,19 +14,22 @@ public class ManageStudents {
         studentList.add(new Student("03", "DAv", "Fall", ".Net"));
         studentList.add(new Student("04", "Bax", "Fall", "C/C++"));
         studentList.add(new Student("05", "Bad", "Fall", "C/C++"));
-        studentList.add(new Student("06", "DGs", "Fall", "C/C++"));
-        studentList.add(new Student("07", "ACd", "Fall", "C/C++"));
-        studentList.add(new Student("08", "CAd", "Fall", "C/C++"));
-        studentList.add(new Student("09", "ZCd", "Fall", "C/C++"));
-        studentList.add(new Student("10", "Cxs", "Fall", "C/C++"));
     }
 
     /**
-     * tạo ra student mới và lặp lại nếu muốn nhập tiếp.
+     * tạo một student mới, nếu id đã tồn tại, chỉ yêu cầu nhập Semester và
+     * CourseName.
      */
     public void createStudent() {
         do {
-            addStudent();
+            System.out.println("------Add Student--------");
+            String id = getNewId();
+            Student student = getStudentById(id);
+            if (student == null) {
+                addNewStudent(id);
+            } else {
+                addNewCourse(student);
+            }
         } while ((studentList.size() < MIN_SIZE)
                 || Inputter.askYesNo("Do you want to continue(Y/N)? "));
     }
@@ -61,7 +60,9 @@ public class ManageStudents {
             String choice = Inputter.getStringWithPattern("Do you want to Update(u) or delete(d): ", "[UuDd]");
             switch (choice.toUpperCase()) {
                 case "U":
-                    update(student, course);
+                    student.setName(getNewName());
+                    course.setSemester(getNewSemester());
+                    course.setCourseName(getNewCourseName());
                     break;
                 case "D":
                     if (student.getCourseList().size() > 1) {
@@ -82,40 +83,6 @@ public class ManageStudents {
      */
     public void report() {
         studentList.forEach(Student::report);
-    }
-
-    private void update(Student student, Course course) {
-        String id;
-        while (true) {
-            id = getNewId();
-            if (getStudentById(id) == null) {
-                break;
-            }
-            System.out.println("id đã tồn tại, vui long nhập id khác!");
-        }
-        String name = getNewName();
-        String semester = getNewSemester();
-        String courseName = getNewCourseName();
-
-        student.setId(id);
-        student.setName(name);
-        course.setSemester(semester);
-        course.setCourseName(courseName);
-    }
-
-    /**
-     * tạo một student mới, nếu id đã tồn tại, chỉ yêu cầu nhập Semester và
-     * CourseName
-     */
-    private void addStudent() {
-        System.out.println("------Add Student--------");
-        String id = getNewId();
-        Student student = getStudentById(id);
-        if (student == null) {
-            addNewStudent(id);
-        } else {
-            addNewCourse(student);
-        }
     }
 
     private Student getStudentById(String id) {
@@ -169,5 +136,4 @@ public class ManageStudents {
         }
         return newList;
     }
-
 }
