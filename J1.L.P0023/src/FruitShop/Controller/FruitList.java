@@ -87,13 +87,13 @@ public class FruitList extends ArrayList<Fruit> {
     }
 
     /**
-     * kiểm tra xem cửa hàng có bán gì hay không, nếu không, in ra thông báo.
+     * kiểm tra xem danh sách có sản phẩm hay không, nếu không, in ra thông báo.
      *
-     * @return trả về false và in ra thông báo nếu không bán gì cả.
+     * @return trả về false và in ra thông báo nếu không có sản phẩm.
      */
     boolean hasProducts() {
         if (isEmpty()) {
-            System.out.println("Cửa hàng này chưa bán gì cả!");
+            System.out.println("Danh sách hoa quả trống!");
             return false;
         }
         return true;
